@@ -1,4 +1,4 @@
--r prd.txt
+-r requirements.txt
 black==20.8b1
 pre-commit==2.11.1
 pytest==6.2.2
