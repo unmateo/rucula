@@ -6,29 +6,28 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from rucula.core.auth import verify_session
-from rucula.core.exceptions import UnauthorizedRequest
 
 
 def create_app():
     """ """
-    app = FastAPI(dependencies=[Depends(verify_session)])
+    app = FastAPI()
 
     app.mount("/static", StaticFiles(directory="rucula/static/public"), name="static")
 
     templates = Jinja2Templates(directory="rucula/static/templates")
 
-    @app.exception_handler(UnauthorizedRequest)
-    async def unauthorized_exception_handler(
-        request: Request, exc: UnauthorizedRequest
-    ):
-        """ """
-        context = {"request": request}
-        return templates.TemplateResponse("public.html", context=context)
-
     @app.get("/", response_class=HTMLResponse)
-    def frontend(request: Request):
+    def get(request: Request):
         """ """
         context = {"request": request}
         return templates.TemplateResponse("form.html", context=context)
+
+    @app.post("/", response_class=HTMLResponse)
+    async def post(request: Request):
+        """ """
+        form = await request.form()
+        print(form)
+        context = {"request": request}
+        return templates.TemplateResponse("result.html", context=context)
 
     return app

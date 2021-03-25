@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-<form class="container">
+<form class="container" method="post" action="/" enctype="application/x-www-form-urlencoded">
 
     <div class="mb-3">
         <label for="category" class="form-label">Categoría</label>
-        <select class="form-select" id="category">
+        <select class="form-select" id="category" name="category">
             <option selected value="market">Supermercado</option>
             <option value="purchase">Compra</option>
             <option value="travel">Viaje</option>
@@ -15,12 +15,12 @@
 
     <div class="mb-3">
         <label for="description" class="form-label">Descripción</label>
-        <input type="text" class="form-control" id="description" >
+        <input type="text" class="form-control" id="description" name="description" >
     </div>
 
     <div class="mb-3">
         <label for="amount" class="form-label">Monto</label>
-        <input type="number" class="form-control" id="amount" >
+        <input type="number" class="form-control" id="amount" name="amount" >
     </div>
 
     <button type="submit" class="btn btn-primary">Cargar</button>
