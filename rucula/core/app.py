@@ -1,11 +1,8 @@
-from fastapi import Depends
 from fastapi import FastAPI
 from fastapi.requests import Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-
-from rucula.core.auth import verify_session
 
 
 def create_app():
