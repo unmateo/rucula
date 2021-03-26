@@ -1,7 +1,7 @@
 const version = "rucula-v1"
 const assets = [
-    "/static/app.js",
-    "/static/rucula.svg",
+    "/app.js",
+    "/rucula.svg",
 ]
 
 self.addEventListener("install", installEvent => {

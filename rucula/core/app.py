@@ -14,8 +14,6 @@ def create_app():
     """ """
     app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
 
-    app.mount("/static", StaticFiles(directory="rucula/static/public"), name="static")
-
     templates = Jinja2Templates(directory="rucula/static/templates")
 
     @app.get("/", response_class=HTMLResponse)
@@ -31,5 +29,7 @@ def create_app():
         PaymentService.save(payment)
         context = {"request": request}
         return templates.TemplateResponse("result.html", context=context)
+
+    app.mount("/", StaticFiles(directory="rucula/static/public"), name="static")
 
     return app
