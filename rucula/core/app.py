@@ -12,7 +12,7 @@ from rucula.core.service import PaymentService
 
 def create_app():
     """ """
-    app = FastAPI()
+    app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
 
     app.mount("/static", StaticFiles(directory="rucula/static/public"), name="static")
 
