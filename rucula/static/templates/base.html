@@ -16,6 +16,11 @@
             integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
         <link rel="manifest" href="/static/manifest.webmanifest" />
 
+        <link rel="apple-touch-icon" href="static/firefox/firefox-general-128-128.png" />
+        <link rel="apple-touch-icon" href="static/firefox/firefox-general-512-512.png" />
+        <meta name="apple-mobile-web-app-status-bar" content="#417505"/>
+        <meta name="theme-color" content="#417505" />
+
     </head>
 
     <body>
@@ -32,6 +37,7 @@
         {% endblock %}
         {% block content %}
         {% endblock %}
+        <script src="/static/app.js"></script>
     </body>
 
 </html>
