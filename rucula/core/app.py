@@ -19,7 +19,7 @@ def create_app():
         context = {"request": request}
         return templates.TemplateResponse("form.html", context=context)
 
-    @app.post("/", response_class=HTMLResponse)
+    @app.post("/payments", response_class=HTMLResponse)
     async def post(request: Request):
         """ """
         form = await request.form()

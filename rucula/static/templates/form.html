@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
-<form class="container" method="post" action="/" enctype="application/x-www-form-urlencoded">
+<form class="container" method="post" action="/payments" enctype="application/x-www-form-urlencoded">
 
     <div class="mb-3">
         <label for="username" class="form-label">Usuario</label>
-        <input type="text" class="form-control" name="username" >
+        <input type="text" class="form-control" name="username" autocomplete="username">
     </div>
 
     <div class="mb-3">
         <label for="password" class="form-label">Contraseña</label>
-        <input type="password" class="form-control" name="password" >
+        <input type="password" class="form-control" name="password" autocomplete="current-password">
     </div>
 
     <div class="mb-3">
