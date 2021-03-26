@@ -1,9 +1,6 @@
 from fastapi import FastAPI
 from fastapi.param_functions import Depends
-from fastapi.requests import Request
-from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
-from fastapi.templating import Jinja2Templates
 
 from rucula.core.auth import authenticate
 from rucula.core.models import Payment
@@ -14,22 +11,13 @@ def create_app():
     """ """
     app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
 
-    templates = Jinja2Templates(directory="rucula/static/templates")
-
-    @app.get("/", response_class=HTMLResponse)
-    def get_form(request: Request):
-        """ """
-        context = {"request": request}
-        return templates.TemplateResponse("form.html", context=context)
-
-    @app.post("/payments", response_class=HTMLResponse)
-    async def create_payment(request: Request, payment: Payment = Depends()):
+    @app.post("/payments")
+    async def create_payment(payment: Payment = Depends()):
         """ """
         authenticate(payment.username, payment.password)
         PaymentService.save(payment)
-        context = {"request": request}
-        return templates.TemplateResponse("result.html", context=context)
+        return True
 
-    app.mount("/", StaticFiles(directory="rucula/static/public"), name="static")
+    app.mount("/", StaticFiles(directory="rucula/static", html=True), name="static")
 
     return app

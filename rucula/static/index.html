@@ -1,0 +1,101 @@
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>Rúcula</title>
+    <base href="/" />
+    <link rel="icon" href="/rucula.svg" sizes="any" type="image/svg+xml">
+    <meta name="description" content="Administrá tu billete" />
+    <meta property="og:title" content="Rúcula" />
+    <meta property="og:url" content="https://unmateo.github.io" />
+    <meta property="og:description" content="Administrá tu billete" />
+    <meta property="og:image" content="/rucula.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#417505">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#417505">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-light bg-light mb-3">
+        <div class="container">
+            <a class="navbar-brand" href="https://unmateo.github.io" target="_blank">
+                <img src="/rucula.svg" alt="" width="30" height="24" class="d-inline-block align-top">
+                Rúcula
+            </a>
+        </div>
+    </nav>
+
+    <form class="container" enctype="application/x-www-form-urlencoded" method="post" name="paymentForm">
+
+        <div class="mb-3">
+            <label for="username" class="form-label">Usuario</label>
+            <input type="text" class="form-control" name="username" autocomplete="username">
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" name="password" autocomplete="current-password">
+        </div>
+
+        <div class="mb-3">
+            <label for="category" class="form-label">Categoría</label>
+            <select class="form-select" name="category">
+                <option selected value="market">Supermercado</option>
+                <option value="purchase">Compra</option>
+                <option value="travel">Viaje</option>
+                <option value="present">Regalo</option>
+                <option value="housing">Vivienda</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Descripción</label>
+            <input type="text" class="form-control" id="description" name="description" required value="-">
+        </div>
+
+        <div class="mb-3">
+            <label for="amount" class="form-label">Monto</label>
+            <input type="number" class="form-control" name="amount" value=100>
+        </div>
+
+        <div class="mb-3">
+            <label for="installments" class="form-label">Cuotas</label>
+            <input type="number" class="form-control" name="installments" min=1 value=1>
+        </div>
+
+        <div class="mb-3">
+            <label for="method" class="form-label">Medio</label>
+            <select class="form-select" name="method">
+                <option selected value="cash">Efectivo</option>
+                <option value="debit">Débito</option>
+                <option value="credit">Crédito</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary mb-3" style="float: right; min-width: 120px;">Registrar</button>
+    </form>
+
+    <script src="/app.js"></script>
+</body>
+
+</html>
