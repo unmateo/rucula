@@ -5,7 +5,8 @@ from pydantic import BaseSettings
 
 class BaseConfig(BaseSettings):
 
-    TOKEN: str
+    USERNAME: str
+    PASSWORD: str
 
 
 @lru_cache()

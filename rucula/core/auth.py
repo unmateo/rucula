@@ -1,11 +1,12 @@
-from fastapi import Query
+from pydantic import SecretStr
 
 from rucula.core.config import settings
 from rucula.core.exceptions import UnauthorizedRequest
 
 
-def verify_session(token=Query(default="")):
+def authenticate(username: str, password: SecretStr):
     """ """
-    if token != settings.TOKEN:
+    user_ok = username == settings.USERNAME
+    pass_ok = password.get_secret_value() == settings.PASSWORD
+    if not (user_ok and pass_ok):
         raise UnauthorizedRequest()
-    return token
