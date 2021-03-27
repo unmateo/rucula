@@ -41,7 +41,14 @@
             "src": "\/android-icon-192x192.png",
             "sizes": "192x192",
             "type": "image\/png",
-            "density": "4.0"
+            "density": "4.0",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "\/rucula-639x639.png",
+            "sizes": "639x639",
+            "type": "image\/png",
+            "density": "5.0"
         }
     ]
 }

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -39,7 +40,7 @@
 
     <nav class="navbar navbar-light bg-light mb-3">
         <div class="container">
-            <a class="navbar-brand" href="https://unmateo.github.io" target="_blank">
+            <a class="navbar-brand" href="https://unmateo.github.io" target="_blank" rel=”noreferrer>
                 <img src="/rucula.svg" alt="" width="30" height="24" class="d-inline-block align-top">
                 Rúcula
             </a>
@@ -50,17 +51,17 @@
 
         <div class="mb-3">
             <label for="username" class="form-label">Usuario</label>
-            <input type="text" class="form-control" name="username" autocomplete="username">
+            <input id="username" type="text" class="form-control" name="username" autocomplete="username">
         </div>
 
         <div class="mb-3">
             <label for="password" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" name="password" autocomplete="current-password">
+            <input id="password" type="password" class="form-control" name="password" autocomplete="current-password">
         </div>
 
         <div class="mb-3">
             <label for="category" class="form-label">Categoría</label>
-            <select class="form-select" name="category">
+            <select id="category" class="form-select" name="category">
                 <option selected value="market">Supermercado</option>
                 <option value="purchase">Compra</option>
                 <option value="travel">Viaje</option>
@@ -71,22 +72,22 @@
 
         <div class="mb-3">
             <label for="description" class="form-label">Descripción</label>
-            <input type="text" class="form-control" id="description" name="description" required value="-">
+            <input id="description" type="text" class="form-control" id="description" name="description" required value="-">
         </div>
 
         <div class="mb-3">
             <label for="amount" class="form-label">Monto</label>
-            <input type="number" class="form-control" name="amount" value=100>
+            <input id="amount" type="number" class="form-control" name="amount" value=100>
         </div>
 
         <div class="mb-3">
             <label for="installments" class="form-label">Cuotas</label>
-            <input type="number" class="form-control" name="installments" min=1 value=1>
+            <input id="installments" type="number" class="form-control" name="installments" min=1 value=1>
         </div>
 
         <div class="mb-3">
             <label for="method" class="form-label">Medio</label>
-            <select class="form-select" name="method">
+            <select id="method" class="form-select" name="method">
                 <option selected value="cash">Efectivo</option>
                 <option value="debit">Débito</option>
                 <option value="credit">Crédito</option>
