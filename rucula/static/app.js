@@ -7,22 +7,38 @@ if ("serviceWorker" in navigator) {
     })
 }
 
-var form = document.forms.namedItem("paymentForm");
-form.addEventListener('submit', function (ev) {
-
-    var oData = new FormData(document.forms.namedItem("paymentForm"));
-
-    var oReq = new XMLHttpRequest();
-    oReq.open("POST", "/payments", true);
-    oReq.onload = function (oEvent) {
-        if (oReq.status == 200) {
-            alert('ok!')
-
-        } else {
-            alert('fail!')
+function getFormValues(form) {
+    var data = {};
+    for (var i = 0, ii = form.length; i < ii; ++i) {
+        var input = form[i];
+        if (input.name) {
+            data[input.name] = input.value;
         }
+    }
+    return data
+}
+
+async function submitPayment (event) {
+    const form = document.getElementById("paymentForm");
+    const values = getFormValues(form);
+    const settings = {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
     };
 
-    oReq.send(oData);
-    ev.preventDefault();
-}, false);
+    const fetchResponse = await fetch('/payments', settings);
+    await handleResponse(fetchResponse);
+}
+
+async function handleResponse(response) {
+    if (response.status == 201) {
+        alert('¡Listo!');
+    } else {
+        const error = await response.text();
+        alert(error);
+    }
+}

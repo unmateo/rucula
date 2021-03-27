@@ -1,4 +1,4 @@
-from rucula.core.models import Payment
+from rucula.payments.model import Payment
 
 
 class PaymentService:

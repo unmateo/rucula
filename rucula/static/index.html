@@ -47,7 +47,7 @@
         </div>
     </nav>
 
-    <form class="container" enctype="application/x-www-form-urlencoded" method="post" name="paymentForm">
+    <form class="container" name="paymentForm" id="paymentForm" onsubmit="event.preventDefault(); submitPayment()">
 
         <div class="mb-3">
             <label for="username" class="form-label">Usuario</label>
