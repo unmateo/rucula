@@ -1,5 +1,9 @@
+from datetime import date
+from typing import Optional
+
 from pydantic import BaseModel
 from pydantic import SecretStr
+from pydantic import validator
 
 
 class Payment(BaseModel):
@@ -11,3 +15,8 @@ class Payment(BaseModel):
     method: str
     amount: int
     installments: int
+    date: Optional[date]
+
+    @validator("date", pre=True, always=True)
+    def set_date(cls, v):
+        return v or date.today()

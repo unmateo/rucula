@@ -13,6 +13,7 @@ class FormConfig(BaseSettings):
     FORM_FIELD_CATEGORY: str
     FORM_FIELD_AMOUNT: str
     FORM_FIELD_DESCRIPTION: str
+    FORM_FIELD_DATE: str
 
 
 class BaseConfig(BaseSettings):
