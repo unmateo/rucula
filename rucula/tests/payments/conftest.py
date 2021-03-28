@@ -9,7 +9,7 @@ def payment_form():
     form = {
         "username": "user",
         "password": "pass",
-        "category": "jaja",
+        "category": "Salud",
         "description": "jaja",
         "method": "jaja",
         "amount": 100,
