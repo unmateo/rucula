@@ -14,6 +14,9 @@ class FormConfig(BaseSettings):
     FORM_FIELD_AMOUNT: str
     FORM_FIELD_DESCRIPTION: str
     FORM_FIELD_DATE: str
+    FORM_FIELD_METHOD: str
+    FORM_FIELD_INSTALLMENT: str
+    FORM_FIELD_INSTALLMENTS: str
 
 
 class BaseConfig(BaseSettings):

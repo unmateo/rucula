@@ -25,6 +25,9 @@ class PaymentForm:
             f"entry.{config.FORM_FIELD_DATE}_year": payment.date.year,
             f"entry.{config.FORM_FIELD_DATE}_month": payment.date.month,
             f"entry.{config.FORM_FIELD_DATE}_day": payment.date.day,
+            f"entry.{config.FORM_FIELD_METHOD}": payment.method,
+            f"entry.{config.FORM_FIELD_INSTALLMENT}": payment.installment,
+            f"entry.{config.FORM_FIELD_INSTALLMENTS}": payment.installments,
         }
         response = post(endpoint, data=form)
         if response.status_code != HTTPStatus.OK:

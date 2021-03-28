@@ -10,10 +10,10 @@ def payment_form():
         "username": "user",
         "password": "pass",
         "category": "Salud",
-        "description": "jaja",
-        "method": "jaja",
+        "description": "description",
+        "method": "method",
         "amount": 100,
-        "installments": 1,
+        "installments": 6,
     }
 
     return form

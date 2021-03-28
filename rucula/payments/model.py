@@ -8,14 +8,15 @@ from pydantic import validator
 
 class Payment(BaseModel):
 
-    username: str
-    password: SecretStr
-    category: str
-    description: str
-    method: str
     amount: int
-    installments: int
+    category: str
     date: Optional[date]
+    description: str
+    installment: Optional[int] = 0
+    installments: int
+    method: str
+    password: SecretStr
+    username: str
 
     @validator("date", pre=True, always=True)
     def set_date(cls, v):
