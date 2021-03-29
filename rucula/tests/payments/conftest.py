@@ -11,9 +11,9 @@ def payment_form():
         "password": "pass",
         "category": "Salud",
         "description": "description",
-        "method": "method",
-        "amount": 100,
-        "installments": 6,
+        "method": "credito",
+        "amount": 2000,
+        "installments": 4,
     }
 
     return form

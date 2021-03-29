@@ -1,6 +1,7 @@
 from http import HTTPStatus
+from typing import List
 
-from requests import post
+from httpx import AsyncClient
 
 from rucula.core.config import settings
 from rucula.core.exceptions import ServiceUnavailable
@@ -13,7 +14,7 @@ class PaymentForm:
     base_url = "https://docs.google.com/forms/u/0/d/e/{form_id}/formResponse"
 
     @classmethod
-    def save(cls, payment: Payment):
+    async def save_one(cls, payment: Payment, client: AsyncClient):
         """ """
         config = settings.FORM
         endpoint = cls.base_url.format(form_id=config.FORM_ID)
@@ -29,8 +30,21 @@ class PaymentForm:
             f"entry.{config.FORM_FIELD_INSTALLMENT}": payment.installment,
             f"entry.{config.FORM_FIELD_INSTALLMENTS}": payment.installments,
         }
-        response = post(endpoint, data=form)
+        response = await client.post(endpoint, data=form)
         if response.status_code != HTTPStatus.OK:
             logger.error(f"Couldn't save {payment=} using config {config=}")
             raise ServiceUnavailable()
+        else:
+            logger.info(f"Saved {payment=}")
         return response
+
+    @classmethod
+    async def save_many(cls, payments: List[Payment]):
+        """ """
+        responses = []
+        async with AsyncClient() as client:
+            for payment in payments:
+                response = await cls.save_one(payment=payment, client=client)
+                responses.append(response)
+            logger.info(f"Finished saving {len(payments)} payments.")
+        return responses

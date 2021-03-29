@@ -1,6 +1,7 @@
 from functools import lru_cache
 
 from pydantic import BaseSettings
+from pydantic import conint
 from pydantic import SecretStr
 
 
@@ -27,6 +28,8 @@ class BaseConfig(BaseSettings):
     LOG_LEVEL: str = "INFO"
 
     FORM = FormConfig()
+
+    INSTALLMENT_DAY: conint(ge=1, le=28) = 10
 
 
 @lru_cache()

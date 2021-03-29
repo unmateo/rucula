@@ -1,4 +1,5 @@
 from http import HTTPStatus
+from typing import List
 
 from fastapi import APIRouter
 
@@ -10,9 +11,9 @@ from rucula.payments.service import PaymentService
 router = APIRouter(prefix="/payments")
 
 
-@router.post("", status_code=HTTPStatus.CREATED, response_model=Payment)
-def create_payment(payment: Payment):
+@router.post("", status_code=HTTPStatus.CREATED, response_model=List[Payment])
+async def create_payment(payment: Payment):
     """ """
     authenticate(payment.username, payment.password)
-    PaymentService.save(payment)
-    return payment
+    payments = await PaymentService.save(payment)
+    return payments
